@@ -1,0 +1,16 @@
+{
+    "name": "knit-common",
+    "version": "0.0.1",
+    "description": "Handlers for the Knit development server and builder.",
+    "author": "Carl Baatz",
+    "licenses": [
+        {"type": "MIT", "url": "https://github.com/cbaatz/knit/raw/master/LICENSE"}
+    ],
+    "repository": {"type": "git",
+                   "url": "git://github.com/cbaatz/knit-common.git"},
+    "engine" : [ "node >=0.6" ],
+    "main" : "./lib/knit-common.js",
+    "dependencies" : {
+	"coffee-script": "1.2.0"
+    }
+}
