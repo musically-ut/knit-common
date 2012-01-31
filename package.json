@@ -13,6 +13,6 @@
     "dependencies" : {
 	"coffee-script": "1.2.0",
 	"less": "1.2.1",
-	"requirejs": "1.0.4" // 1.0.5 blocked when importing deps for some reason
+	"requirejs": "1.0.4"
     }
 }

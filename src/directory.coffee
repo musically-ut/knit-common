@@ -5,37 +5,37 @@ p  = require 'path'
 # TODO: Option to override mimetypes
 # TODO: More mime-types
 
-buildRoutes = (dir) ->
-  # Construct routes object for files in dir
-  routes = {}
-  for filename in fs.readdirSync(dir)
-    do (filename) ->
-      path = p.join dir, filename
-      if p.existsSync(path) # Necessary for some odd links
-        stat = fs.statSync(path)
-        if stat.isDirectory()
-          routes[filename] = buildRoutes path
-        else if stat.isFile()
-          routes[filename] = (cb) ->
-            fs.readFile(path, (err, data) ->
-              if err
-                console.error "ERROR: #{ err.message }"
-                cb('', '')
-              else
-                cb(data, mimeType(path)))
+routePath = (path) ->
+  stat = fs.statSync(path)
+  handler = undefined
+  if stat.isDirectory()
+    handler = {}
+    for filename in fs.readdirSync(path)
+      do (filename) ->
+        if p.existsSync(path) # Necessary for some odd links
+          handler[filename] = routePath (p.join path, filename)
+  else if stat.isFile() and p.existsSync(path)
+    handler = (put) ->
+      fs.readFile(path, (err, data) ->
+        if err
+          console.error "ERROR: #{ err.message }"
+          put('', '')
         else
-          console.log "IGNORE    #{ path }. Neither file nor directory."
-  routes
+          put(data, mimeType(path)))
+  else
+    console.log "IGNORE    #{ path }. Neither file nor directory."
+  handler
 
 mimeTypes =
-  'txt':  'text/plain'
-  'html': 'text/html'
-  'htm':  'text/html'
-  'js':   'application/javascript'
-  'css':  'style/css'
-  'json': 'application/json'
-  '':     'text/plain'
+  'txt':    'text/plain'
+  'html':   'text/html'
+  'htm':    'text/html'
+  'js':     'application/javascript'
+  'css':    'style/css'
+  'json':   'application/json'
+  'coffee': 'text/coffeescript'
+  '':       'text/plain'
 
-mimeType = (filename) -> mimeTypes[(p.extname filename).substr(1)]
+mimeType = (filename) -> mimeTypes[(p.extname filename).substr(1)] or 'text/plain'
 
-exports.handler = buildRoutes
+exports.handler = routePath
