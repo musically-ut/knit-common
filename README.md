@@ -32,6 +32,17 @@ then
 will serve this on `http://localhost:8081/`, proxying everything but
 the specified resources to `http://localhost:8080/`. See the [Knit readme](https://github.com/cbaatz/knit) for more details on Knit usage.
 
+Installation
+------------
+
+Installation requires
+[node.js](https://github.com/joyent/node/wiki/Installation) and
+[npm](http://npmjs.org/) and can then be accomplished with
+
+    git clone git://github.com/cbaatz/knit-common.git
+    cd knit-common
+    npm install -g
+
 String Handler
 --------------
 
