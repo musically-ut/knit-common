@@ -11,6 +11,7 @@
     "engine" : [ "node >=0.6" ],
     "main" : "./lib/knit-common.js",
     "dependencies" : {
-	"coffee-script": "1.2.0"
+	"coffee-script": "1.2.0",
+	"less": "1.2.1"
     }
 }
