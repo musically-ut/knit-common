@@ -65,3 +65,14 @@ Usage: `handle.directory(directory)`
 Serves files (recursively) from the specified local
 directory. Determines a limited set of mime-types from the files'
 extensions.
+
+Less Handler
+-----------------
+
+Usage: `handle.less(filename, [options])`
+
+Compiles [Less](http://lesscss.org/) files to CSS. Options are passed
+to the Less parser (so can include things like `paths` and
+`optimization`).  It also passes the `compress` value of the options
+object to the `toCSS` function, indiciating whether or not to minify
+the produced CSS.
