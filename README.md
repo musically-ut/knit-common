@@ -57,14 +57,13 @@ Usage: `handle.favicon()`
 
 Simply serves empty data with an `image/vnd.microsoft.icon` mime-type.
 
-Directory Handler
+Path Handler
 -----------------
 
-Usage: `handle.directory(directory)`
+Usage: `handle.path(file or directory)`
 
-Serves files (recursively) from the specified local
-directory. Determines a limited set of mime-types from the files'
-extensions.
+Serves the specified file or directory hierarchy (recursively).
+Determines a limited set of mime-types from the files' extensions.
 
 Less Handler
 ------------
