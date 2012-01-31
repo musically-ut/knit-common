@@ -67,7 +67,7 @@ directory. Determines a limited set of mime-types from the files'
 extensions.
 
 Less Handler
------------------
+------------
 
 Usage: `handle.less(filename, [options])`
 
