@@ -22,7 +22,7 @@ with `knit.coffee` containing
       '/':            handle.string('This is the data', 'text/plain')
       '/robots.txt':  handle.string('User-agent: *\nDisallow: /', 'text/plain')
       '/favicon.ico': handle.favicon()
-      '/static/':     handle.directory('./static')
+      '/static/':     handle.path('./static')
 
 then
 
@@ -75,3 +75,12 @@ to the Less parser (so can include things like `paths` and
 `optimization`).  It also passes the `compress` value of the options
 object to the `toCSS` function, indiciating whether or not to minify
 the produced CSS.
+
+r.js optimizer Handler
+----------------------
+
+Usage: `handle.requirejs(modulename, [options])`
+
+Compiles an AMD module with [r.js](http://requirejs.org/) into an
+optimized file. Options are passed to the `requirejs.optimize`
+function.
