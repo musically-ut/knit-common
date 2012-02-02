@@ -38,4 +38,4 @@ mimeTypes =
 
 mimeType = (filename) -> mimeTypes[(p.extname filename).substr(1)] or 'text/plain'
 
-exports.handler = routePath
+exports.makeHandler = routePath

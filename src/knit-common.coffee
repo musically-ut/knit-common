@@ -1,6 +1,6 @@
-exports.string    = require('./string').handler
-exports.favicon   = require('./favicon').handler
-exports.path      = require('./path').handler
-exports.less      = require('./less').handler
-exports.requirejs = require('./requirejs').handler
-exports.uglify    = require('./uglify').handler
+exports.string    = require('./string').makeHandler
+exports.favicon   = require('./favicon').makeHandler
+exports.path      = require('./path').makeHandler
+exports.less      = require('./less').makeHandler
+exports.requirejs = require('./requirejs').makeHandler
+exports.uglify    = require('./uglify').makeHandler

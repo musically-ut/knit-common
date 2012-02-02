@@ -4,7 +4,7 @@ pro = (require "uglify-js").uglify
 less = require 'less'
 fs = require 'fs'
 
-exports.handler = (filename, config) ->
+exports.makeHandler = (filename, config) ->
   config                     ?= {}
   config.strict_semicolons   ?= undefined
   config.ast_lift_variables  ?= false

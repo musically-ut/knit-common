@@ -2,7 +2,7 @@ requirejs = require('requirejs')
 fs = require('fs')
 p  = require('path')
 
-exports.handler = (modulename, config) ->
+exports.makeHandler = (modulename, config) ->
   config                ?= {}
   config.name           ?= modulename
   config.out            ?= './REMOVE-this-temporary-knit-file.js'

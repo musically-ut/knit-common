@@ -1,2 +1,2 @@
-exports.handler = (data, mimetype) ->
+exports.makeHandler = (data, mimetype) ->
   handler = (put) -> put(data, mimetype ? 'text/plain')

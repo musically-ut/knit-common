@@ -1,7 +1,7 @@
 less = require 'less'
 fs = require 'fs'
 
-exports.handler = (dir, config) ->
+exports.makeHandler = (dir, config) ->
   config              ?= {}
   config.filename     = dir
   config.compress     ?= false
