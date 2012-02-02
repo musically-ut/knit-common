@@ -84,3 +84,23 @@ Usage: `handle.requirejs(modulename, [options])`
 Compiles an AMD module with [r.js](http://requirejs.org/) into an
 optimized file. Options are passed to the `requirejs.optimize`
 function.
+
+Uglify Handler
+--------------
+
+Usage: `handle.uglify(filename, [options])`
+
+Transform the `filename` file with
+[UglifyJS](https://github.com/mishoo/UglifyJS). `options` can include:
+
+- `strict_semicolons` (`true` or `false`): Passed UglifyJS's `parser.parse` funciton.
+- `ast_lift_variables` (`true` or `false`): Include a `uglify.ast_lift_variables` step.
+- `ast_mangle_options` (object): Options passed to `uglify.ast_mangle`.
+- `ast_squeeze_options` (object): Options passed to `uglify.ast_squeeze`.
+- `gen_code_options` (object): Options passed to `uglify.gen_code`.
+
+This handler is mostly useful for building for deployment. For
+example, you could write your routes conditionally on `knit.action ==
+'write'` and then use handle.uglify('libs/jquery.js') if you're using
+uncompressed `jquery.js` in development (and you want to serve it
+yourself, but you should consider using a CDN).
