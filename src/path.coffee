@@ -26,7 +26,6 @@ routePath = (path, config) ->
           mimeTypes[match] = type for match, type of defaultMimeTypes
           mimeTypes[match] = type for match, type of config.mimeTypes
           type = matchMimeType(path, mimeTypes, 'text/plain')
-          console.log "using", type
           put(data, type)
   else
     console.log "IGNORE    #{ path }. Neither file nor directory."
