@@ -60,10 +60,36 @@ Simply serves empty data with an `image/vnd.microsoft.icon` mime-type.
 Path Handler
 -----------------
 
-Usage: `handle.path(file or directory)`
+Usage: `handle.path(file or directory, config)`
 
-Serves the specified file or directory hierarchy (recursively).
-Determines a limited set of mime-types from the files' extensions.
+Serves the specified file or directory hierarchy (recursively). The
+config supports a `mimeTypes` option allowing you to override the
+limited set of default mime-types (below). The `mimeTypes` field
+should be a map from path-ending to a mime-type. For example:
+
+    config =
+      'mimeTypes':
+        'txt': 'text/plain'
+        'poorly-named.txt': 'text/html'
+    handle.path('scripts', config)
+
+The default map from ending to mime-type is:
+
+    '.txt':    'text/plain'
+    '.htm':    'text/html'
+    '.html':   'text/html'
+    '.css':    'text/css'
+    '.coffee': 'text/coffeescript'
+    '.js':     'application/javascript'
+    '.json':   'application/json'
+    '.xhtml':  'application/xhtml+xml'
+    '.xml':    'application/xml'
+    '.gif':    'image/gif'
+    '.png':    'image/png'
+    '.jpg':    'image/jpeg'
+    '.jpeg':   'image/jpeg'
+    '.svg':    'image/svg+xml'
+    '.ico':    'image/x-icon'
 
 Less Handler
 ------------
