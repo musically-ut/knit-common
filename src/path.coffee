@@ -53,6 +53,6 @@ defaultMimeTypes =
   '.jpg':    'image/jpeg'
   '.jpeg':   'image/jpeg'
   '.svg':    'image/svg+xml'
-  '.ico':    'image/x-icon'
+  '.ico':    'image/vnd.microsoft.icon'
 
 exports.makeHandler = routePath
