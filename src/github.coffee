@@ -10,5 +10,5 @@ exports.makeHandler = (username, reponame, ref, filename) ->
 
   handler = (stream) ->
     req = https.get(source, (res) -> res.pipe(stream))
-    console.log "FOREIGN REQUEST: https://#{ source.host }#{ source.path }"
+    console.log "FETCHING: https://#{ source.host }#{ source.path }"
     req.on('error', (e) -> console.error(e))
