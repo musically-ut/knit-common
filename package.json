@@ -1,6 +1,6 @@
 {
     "name": "knit-common",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Handlers for the Knit development server and builder.",
     "author": "Carl Baatz",
     "licenses": [
