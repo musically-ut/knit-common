@@ -13,7 +13,7 @@ routePath = (path, config) ->
     handler = {}
     for filename in fs.readdirSync(path)
       do (filename) ->
-        if p.existsSync(path) # Necessary for some odd links
+        if p.existsSync(p.join path, filename) # Necessary for some odd links
           handler[filename] = routePath (p.join path, filename)
   else if stat.isFile() and p.existsSync(path)
     handler = (stream) ->
