@@ -12,7 +12,7 @@ exports.makeHandler = (filename, config) ->
   config.ast_squeeze_options ?= {}
   config.gen_code_options    ?= {}
 
-  handler = (put) ->
+  handler = (stream) ->
     fs.readFile filename, (err, code) =>
       if err then return console.error err
       # parse code and get the initial AST
@@ -25,5 +25,5 @@ exports.makeHandler = (filename, config) ->
       ast = pro.ast_squeeze(ast, config.ast_squeeze_options)
       # compressed code here
       output = pro.gen_code(ast, config.gen_code_options)
-      put(output, "application/javascript")
+      stream.endWithMime(output, "application/javascript")
   handler

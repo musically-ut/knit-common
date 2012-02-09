@@ -16,17 +16,18 @@ routePath = (path, config) ->
         if p.existsSync(path) # Necessary for some odd links
           handler[filename] = routePath (p.join path, filename)
   else if stat.isFile() and p.existsSync(path)
-    handler = (put) ->
-      fs.readFile path, (err, data) ->
-        if err
-          console.error "ERROR: #{ err.message }"
-          put('', '')
-        else
-          mimeTypes = {}
-          mimeTypes[match] = type for match, type of defaultMimeTypes
-          mimeTypes[match] = type for match, type of config.mimeTypes
-          type = matchMimeType(path, mimeTypes, 'text/plain')
-          put(data, type)
+    handler = (stream) ->
+      # Set mime type
+      mimeTypes = {}
+      mimeTypes[match] = type for match, type of defaultMimeTypes
+      mimeTypes[match] = type for match, type of config.mimeTypes
+      type = matchMimeType(path, mimeTypes, 'text/plain')
+      stream.setMime(type)
+
+      # Pipe file contents to response stream
+      fileStream = fs.createReadStream(path)
+      fileStream.on('error', (e) -> console.error("ERROR: #{ err.message }"))
+      fileStream.pipe(stream)
   else
     console.log "IGNORE    #{ path }. Neither file nor directory."
   handler

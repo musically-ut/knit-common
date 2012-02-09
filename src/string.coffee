@@ -1,2 +1,2 @@
 exports.makeHandler = (data, mimetype) ->
-  handler = (put) -> put(data, mimetype ? 'text/plain')
+  handler = (stream) -> stream.endWithMime(data, mimetype ? 'text/plain')

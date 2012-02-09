@@ -1,2 +1,2 @@
 exports.makeHandler = () ->
-  handler = (put) -> put('', 'image/vnd.microsoft.icon')
+  handler = (stream) -> stream.endWithMime('', 'image/vnd.microsoft.icon')

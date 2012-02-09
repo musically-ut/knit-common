@@ -1,5 +1,6 @@
 https = require 'https'
 
+# GitHub files can be retrieved as:
 # https://raw.github.com/<username>/<reponame>/<ref>/<filename>
 
 exports.makeHandler = (username, reponame, ref, filename) ->
@@ -8,7 +9,6 @@ exports.makeHandler = (username, reponame, ref, filename) ->
     path: "/#{ username }/#{ reponame }/#{ ref }/#{ filename }"
 
   handler = (stream) ->
-    https.get(source, (res) ->
-      res.on('data', (d) -> stream.write(d))
-      res.on('end', () -> stream.end())
-     ).on('error', (e) -> console.error(e))
+    req = https.get(source, (res) -> res.pipe(stream))
+    console.log "FOREIGN REQUEST: https://#{ source.host }#{ source.path }"
+    req.on('error', (e) -> console.error(e))
