@@ -5,3 +5,5 @@ exports.less      = require('./less').makeHandler
 exports.requirejs = require('./requirejs').makeHandler
 exports.uglify    = require('./uglify').makeHandler
 exports.github    = require('./github').makeHandler
+exports.httpget   = require('./httpget').makeHandler
+exports.httpsget  = require('./httpsget').makeHandler
