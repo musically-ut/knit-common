@@ -130,3 +130,22 @@ example, you could write your routes conditionally on `knit.action ==
 'write'` and then use handle.uglify('libs/jquery.js') if you're using
 uncompressed `jquery.js` in development (and you want to serve it
 yourself, but you should consider using a CDN).
+
+GitHub download handler
+----------------------
+
+Usage: `handle.github(<username>, <reponame>, <ref>, <filename>)`
+
+Downloads the file in the specified repository from GitHub. This is
+intended for writing resources, not serving them locally (it would
+re-download the file on each request).
+
+HTTP and HTTPS download handlers
+--------------------------------
+
+Usage: `handle.http(<host>, <path>)`
+Usage: `handle.https(<host>, <path>)`
+
+Downloads the file at `http://<host><path>` or `https://<host><path>`
+respectively. This is intended for writing resources, not serving them
+locally (it would re-download the file on each request).
