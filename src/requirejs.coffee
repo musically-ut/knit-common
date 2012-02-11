@@ -15,7 +15,7 @@ exports.makeHandler = (modulename, config) ->
 
       # Pipe file contents to response stream
       fileStream = fs.createReadStream(path)
-      fileStream.on('error', (e) -> console.error("ERROR: #{ err.message }"))
+      fileStream.on('error', (e) -> knit.log.error("#{ err.message }"))
       fileStream.on('close', fs.unlinkSync(config.out)) # Remove config.out file
       fileStream.pipe(stream)
     )

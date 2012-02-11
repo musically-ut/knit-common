@@ -10,9 +10,9 @@ exports.makeHandler = (dir, config) ->
   parser = new less.Parser config
   handler = (stream) ->
     fs.readFile config.filename, (err, data) =>
-      if err then return console.error err
+      if err then return knit.log.error err
       parser.parse data.toString(), (err, tree) =>
-        if err then return console.error err
+        if err then return knit.log.error err
         stream.setMime('text/css')
         stream.end(tree.toCSS({compress: config.compress}))
   handler

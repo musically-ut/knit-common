@@ -26,10 +26,10 @@ routePath = (path, config) ->
 
       # Pipe file contents to response stream
       fileStream = fs.createReadStream(path)
-      fileStream.on('error', (e) -> console.error("ERROR: #{ err.message }"))
+      fileStream.on('error', (e) -> knit.log.error("#{ err.message }"))
       fileStream.pipe(stream)
   else
-    console.log "IGNORE    #{ path }. Neither file nor directory."
+    knit.log.warn "IGNORING #{ path }: neither file nor directory"
   handler
 
 matchMimeType = (path, types, defaultType) ->

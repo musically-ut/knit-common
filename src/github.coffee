@@ -10,5 +10,5 @@ exports.makeHandler = (username, reponame, ref, filename) ->
 
   handler = (stream) ->
     req = https.get(source, (res) -> res.pipe(stream))
-    console.log "FETCHING: https://#{ source.host }#{ source.path }"
-    req.on('error', (e) -> console.error(e))
+    knit.log.info "FETCHING https://#{ source.host }#{ source.path }"
+    req.on('error', (e) -> knit.log.error(e))
