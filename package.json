@@ -1,6 +1,6 @@
 {
     "name": "knit-common",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Handlers for the Knit development server and builder.",
     "author": "Carl Baatz",
     "licenses": [
@@ -11,7 +11,7 @@
     "engine" : [ "node >=0.6" ],
     "main" : "./lib/knit-common.js",
     "dependencies" : {
-	"knit": "0.5.0",
+	"knit": "0.6.0",
 	"coffee-script": "1.2.0",
 	"less": "1.2.1",
 	"requirejs": "1.0.4",

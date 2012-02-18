@@ -14,7 +14,7 @@ exports.makeHandler = (filename, config) ->
 
   handler = (stream) ->
     fs.readFile filename, (err, code) =>
-      if err then return knit.log.error err
+      if err then return stream.log.error err
       # parse code and get the initial AST
       ast = jsp.parse(code.toString(), config.strict_semicolons)
       # merge and move var declarations if configured to
