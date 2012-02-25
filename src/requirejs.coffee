@@ -14,8 +14,8 @@ exports.makeHandler = (modulename, config) ->
       stream.setMime('application/javascript')
 
       # Pipe file contents to response stream
-      fileStream = fs.createReadStream(path)
+      fileStream = fs.createReadStream(config.out)
       fileStream.on('error', (e) -> stream.log.error("#{ err.message }"))
-      fileStream.on('close', fs.unlinkSync(config.out)) # Remove config.out file
+      fileStream.on('close', -> fs.unlinkSync(config.out)) # Remove config.out file
       fileStream.pipe(stream)
     )
