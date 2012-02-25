@@ -5,7 +5,7 @@ p  = require('path')
 exports.makeHandler = (modulename, config) ->
   config                ?= {}
   config.name           ?= modulename
-  config.out            ?= './REMOVE-this-temporary-knit-file.js'
+  config.out            ?= "./REMOVE-this-temporary-knit-file-for-#{ config.name }.js"
 
   # Modules
   handler = (stream) ->
