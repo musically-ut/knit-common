@@ -13,7 +13,7 @@
     "dependencies" : {
 	"coffee-script": "1.2.0",
 	"less": "1.2.1",
-	"requirejs": "1.0.4",
+	"requirejs": "1.0.7",
 	"uglify-js": "1.2.5"
     }
 }
