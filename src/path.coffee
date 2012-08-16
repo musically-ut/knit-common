@@ -13,9 +13,9 @@ routePath = (path, config) ->
     handler = {}
     for filename in fs.readdirSync(path)
       do (filename) ->
-        if p.existsSync(p.join path, filename) # Necessary for some odd links
+        if fs.existsSync(p.join path, filename) # Necessary for some odd links
           handler[filename] = routePath (p.join path, filename)
-  else if stat.isFile() and p.existsSync(path)
+  else if stat.isFile() and fs.existsSync(path)
     handler = (stream) ->
       # Set mime type
       mimeTypes = {}
