@@ -12,7 +12,7 @@ exports.makeHandler = (dir, config) ->
     fs.readFile config.filename, (err, data) =>
       if err then return stream.log.error err
       parser.parse data.toString(), (err, tree) =>
-        if err then return stream.log.error err
+        if err then return stream.log.error JSON.stringify(err, null, '  ')
         stream.setMime('text/css')
         stream.end(tree.toCSS({compress: config.compress}))
   handler
