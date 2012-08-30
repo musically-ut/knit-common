@@ -39,9 +39,7 @@ Installation requires
 [node.js](https://github.com/joyent/node/wiki/Installation) and
 [npm](http://npmjs.org/) and can then be accomplished with
 
-    git clone git://github.com/cbaatz/knit-common.git
-    cd knit-common
-    npm install -g
+    npm install git://github.com/cbaatz/knit-common.git
 
 String Handler
 --------------
@@ -124,6 +122,8 @@ Transform the `filename` file with
 - `ast_mangle_options` (object): Options passed to `uglify.ast_mangle`.
 - `ast_squeeze_options` (object): Options passed to `uglify.ast_squeeze`.
 - `gen_code_options` (object): Options passed to `uglify.gen_code`.
+- `comments_before` (`true` or `false`): Preserve initial comments (e.g. copyright).
+- `copyright` (string): String to prepend to the minified result (e.g. to manually add copyright notice).
 
 This handler is mostly useful for building for deployment. For
 example, you could write your routes conditionally on `knit.action ==
