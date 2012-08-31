@@ -1,6 +1,6 @@
 {
     "name": "knit-common",
-    "version": "0.4.2",
+    "version": "0.4.3",
     "description": "Handlers for the Knit development server and builder.",
     "author": "Carl Baatz",
     "licenses": [
@@ -14,6 +14,7 @@
 	"coffee-script": "~1.3.3",
 	"less": "~1.3.0",
 	"requirejs": "~2.0.5",
-	"uglify-js": "~1.3.3"
+	"uglify-js": "~1.3.3",
+	"handlebars": "~1.0.6-2"
     }
 }
